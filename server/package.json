@@ -1,0 +1,19 @@
+{
+  "name": "reactd3",
+  "version": "1.0.0",
+  "description": "react.js and d3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jeong Min Lee",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookieparser": "^0.1.0",
+    "cors": "^2.7.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4"
+  }
+}

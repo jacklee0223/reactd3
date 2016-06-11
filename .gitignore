@@ -1,0 +1,6 @@
+*.env
+*.pem
+*.crt
+*.csr
+*.key
+*.org
