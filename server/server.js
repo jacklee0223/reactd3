@@ -1,11 +1,15 @@
 // dependencies
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var port = process.env.PORT || 8000;
-var cookieParser = require('cookieparser');
-var bodyParser = require('body-parser');
-var cors = require('cors');
+var express      = require('express'),
+    app          = express(),
+    http         = require('http').Server(app),
+    port         = process.env.PORT || 8000,
+    cookieParser = require('cookieparser'),
+    bodyParser   = require('body-parser'),
+    cors         = require('cors'),
+    mongoose     = require('mongoose'),
+    dotenv       = require('dotenv'),
+    passport     = require('passport'),
+    passLocal    = require('passport-local');
 
 // Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +20,11 @@ app.use(cors());
 
 // Serve client files
 app.use(express.static(__dirname + '/../client'));
+
+// require MongoDB and connect to DB
+require('dotenv').load();
+var dbUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || process.env.MYDB;
+mongoose.connect(dbUrl);
 
 // listen on port
 http.listen(port, function() {
